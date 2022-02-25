@@ -20,7 +20,7 @@ defmodule TisWeb.Router do
     get "/", PageController, :index
 
     # admin routers
-    get "/admin/login", AdminController, :admin_login
+    post "/admin/login", AdminController, :admin_login
     get "/admin/login", AdminController, :admin_login
   end
 
