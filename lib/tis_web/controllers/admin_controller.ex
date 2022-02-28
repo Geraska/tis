@@ -26,4 +26,24 @@ defmodule TisWeb.AdminController do
     |> render("admin.html")
   end
 
+  def registration(conn, _params) do
+    conn
+    |> put_layout("app.html")
+    |> render("registration.html")
+  end
+  def registration_submit(conn, params) do
+    login = params["login"]
+    password = params["password"]
+    re_password = params["re_password"]
+
+    if login != "" and password == re_password do
+      conn
+      |> put_flash(:info, "Вы удачно зарегестрировались!")
+      |> redirect(to: "/admin/login")
+    else
+      conn
+      |> put_flash(:error, "Не введены поле логин или пароль!")
+      |> redirect(to: "/admin/registration")
+    end
+  end
 end

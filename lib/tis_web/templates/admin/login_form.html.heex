@@ -20,20 +20,27 @@
         <%= form_for @conn, Routes.admin_path(@conn, :login_submit), fn f -> %>
             <div class="login_field">
                 <div class="input-block two-icons">
-                    <label for="name" class="input-label">Login</label>
+                    <label for="login" class="input-label">Login</label>
                     <%= text_input f, :login, class: "form-input", required: "true", maxlength: 12 %>
                     <span class="input-message">Login field</span>
                 </div>
             </div>
             <div class="password_field">
                 <div class="input-block password-input">
-                    <label for="" class="input-label">Password</label>
-                    <%= text_input f, :password, class: "form-input pass-inputt", required: "true"%>
+                    <label for="password" class="input-label">Password</label>
+                    <%= text_input f, :password, class: "form-input pass-input", required: "true"%>
                     <span class="input-message">Password field</span>
                     <span class="eye-icon"></span>
                 </div>
             </div>
-            <%= submit "Вход", class: "button button-default", id: "submit_btn" %>
+            <div class="row">
+                <div class="col-6">
+                    <%= submit "Вход", class: "button button-default", id: "submit_btn" %>
+                </div>
+                <div class="col-6">
+                    <a href="/admin/registration" class= "button button-default">Регистрация</a>
+                </div>
+            </div>
         <% end %>
     </div>
 </div>

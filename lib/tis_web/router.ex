@@ -25,6 +25,10 @@ defmodule TisWeb.Router do
     get "/admin/login", AdminController, :admin_login
     post "/admin/login/submit", AdminController, :login_submit
     get "/admin/login/submit", AdminController, :login_submit
+    post "/admin/registration", AdminController, :registration
+    get "/admin/registration", AdminController, :registration
+    post "/admin/registration/submit", AdminController, :registration_submit
+    get "/admin/registration/submit", AdminController, :registration_submit
 
   end
 
