@@ -1,6 +1,8 @@
 <style>
-#login_form .login_field, .password_field {
-    padding: 10px;
+#login_form {
+    display: grid;
+    grid-template-rows: repeat(3, 2fr);
+    margin-top: 20px;
 }
 </style>
 
@@ -13,26 +15,26 @@
     <title>Admin</title>
 </head>
 <body>
-<div class="container">
-    <div class="row mrg-t-2" id="login_form">
-        <div class="row-cols-2 login_field">
-            <div class="input-block two-icons">
-                <label for="name" class="input-label">Label</label>
-                <input type="text" class="form-input">
-                <span class="input-message">Login field</span>
+<div class="">
+    <div class="justify-content-center" id="login_form">
+        <%= form_for @conn, Routes.admin_path(@conn, :login_submit), fn f -> %>
+            <div class="login_field">
+                <div class="input-block two-icons">
+                    <label for="name" class="input-label">Login</label>
+                    <%= text_input f, :login, class: "form-input", required: "true", maxlength: 12 %>
+                    <span class="input-message">Login field</span>
+                </div>
             </div>
-        </div>
-        <div class="row-cols-2 password_field">
-            <div class="input-block password-input">
-                <label for="" class="input-label">Label</label>
-                <input type="password" class="form-input pass-input">
-                <span class="input-message">Password field</span>
-                <span class="eye-icon"></span>
+            <div class="password_field">
+                <div class="input-block password-input">
+                    <label for="" class="input-label">Password</label>
+                    <%= text_input f, :password, class: "form-input pass-inputt", required: "true"%>
+                    <span class="input-message">Password field</span>
+                    <span class="eye-icon"></span>
+                </div>
             </div>
-        </div>
-        <div class="row-auto">
-            <button type="button" class="button button-default">Button</button>
-        </div>
+            <%= submit "Вход", class: "button button-default", id: "submit_btn" %>
+        <% end %>
     </div>
 </div>
 </body>

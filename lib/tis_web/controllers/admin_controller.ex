@@ -1,13 +1,12 @@
 defmodule TisWeb.AdminController do
   use TisWeb, :controller
 
-  def admin_login(conn, params) do
-    IO.inspect(params)
+  def admin_login(conn, _params) do
     conn
     |> put_layout("app.html")
     |> render("login_form.html")
   end
-  def admin(conn, params) do
+  def login_submit(conn, params) do
     login = params["login"]
     password = params["password"]
 
@@ -21,4 +20,10 @@ defmodule TisWeb.AdminController do
       |> render("admin.html")
     end
   end
+  def admin(conn, _params) do
+    conn
+    |> put_layout("app.html")
+    |> render("admin.html")
+  end
+
 end

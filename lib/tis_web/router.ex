@@ -20,8 +20,12 @@ defmodule TisWeb.Router do
     get "/", PageController, :index
 
     # admin routers
-    post "/admin/login", AdminController, :admin_login
+    post "/admin", AdminController, :admin
+    get "/admin", AdminController, :admin
     get "/admin/login", AdminController, :admin_login
+    post "/admin/login/submit", AdminController, :login_submit
+    get "/admin/login/submit", AdminController, :login_submit
+
   end
 
   # Other scopes may use custom stacks.
